@@ -361,6 +361,8 @@
 		5ECE00601454E59B004861E9 /* PseudoTerminalRestorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE005E1454E59B004861E9 /* PseudoTerminalRestorer.m */; };
 		5ECE4AE814513F05002A9CC2 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5ECE4AC41451343E002A9CC2 /* Growl.framework */; };
 		5ECE4AEA14514058002A9CC2 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE4AE914514058002A9CC2 /* Growl Registration Ticket.growlRegDict */; };
+		6666287C12B3AB44001F20F4 /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6666287B12B3AB44001F20F4 /* base64.m */; };
+		6666288012B3AB56001F20F4 /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 6666287F12B3AB56001F20F4 /* base64.h */; };
 		874206490564169600CFC3F1 /* iTermApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 20D5CC6304E7AA0500000106 /* iTermApplicationDelegate.h */; };
 		8742064D0564169600CFC3F1 /* iTerm.icns in Resources */ = {isa = PBXBuildFile; fileRef = E8EDCE69015E0A5703000001 /* iTerm.icns */; };
 		8742064F0564169600CFC3F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CF757F026DDAD703A80106 /* main.m */; };
@@ -644,6 +646,8 @@
 		5ECE005E1454E59B004861E9 /* PseudoTerminalRestorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PseudoTerminalRestorer.m; sourceTree = "<group>"; };
 		5ECE4AC41451343E002A9CC2 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		5ECE4AE914514058002A9CC2 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		6666287B12B3AB44001F20F4 /* base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = base64.m; sourceTree = "<group>"; };
+		6666287F12B3AB56001F20F4 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
 		872EBC5304E42E320073D10E /* NSStringITerm.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NSStringITerm.h; path = Headers/iTerm/NSStringITerm.h; sourceTree = "<group>"; };
 		872EBC5404E42E320073D10E /* PTYTextView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = PTYTextView.h; path = Headers/iTerm/PTYTextView.h; sourceTree = "<group>"; };
 		872EBC5704E42E320073D10E /* PTYTabView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = PTYTabView.h; path = Headers/iTerm/PTYTabView.h; sourceTree = "<group>"; };
@@ -884,6 +888,7 @@
 		0464AB15006CD2EC7F000001 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				6666287F12B3AB56001F20F4 /* base64.h */,
 				1D06E7D114BC04510097C0ED /* ProfileTableRow.h */,
 				1D06E7D514BC04E20097C0ED /* ProfileModelWrapper.h */,
 				1D06E7D914BC05DB0097C0ED /* ProfileTableView.h */,
@@ -1005,6 +1010,7 @@
 		0464AB1F006CD2EC7F000001 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6666287B12B3AB44001F20F4 /* base64.m */,
 				E8CF757F026DDAD703A80106 /* main.m */,
 			);
 			name = "Other Sources";
@@ -1536,6 +1542,7 @@
 				A073973E14C768E400786414 /* ColorsMenuItemView.h in Headers */,
 				1DA26AC015007507004B5792 /* BackgroundThread.h in Headers */,
 				1D2F3B3D1516BA470044C337 /* iTermFontPanel.h in Headers */,
+				6666288012B3AB56001F20F4 /* base64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1836,6 +1843,7 @@
 				A073974014C7694600786414 /* ColorsMenuItemView.m in Sources */,
 				1DA26AC115007507004B5792 /* BackgroundThread.m in Sources */,
 				1D2F3B3E1516BA470044C337 /* iTermFontPanel.m in Sources */,
+				6666287C12B3AB44001F20F4 /* base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

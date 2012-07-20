@@ -32,6 +32,7 @@
 #import "PTYSession.h"
 #import "VT100Screen.h"
 #import "NSStringITerm.h"
+#import "base64.h"
 #import "iTermApplicationDelegate.h"
 #import "ITAddressBookMgr.h"
 #import "PTYTab.h"
@@ -755,6 +756,7 @@ static VT100TCC decode_xterm(unsigned char *datap,
                              size_t *rmlen,
                              NSStringEncoding enc)
 {
+#define MAX_BUFFER_LENGTH (64 * 1024)
     int mode = 0;
     VT100TCC result;
     NSData *data;
@@ -843,6 +845,24 @@ static VT100TCC decode_xterm(unsigned char *datap,
         result.type = VT100_NOTSUPPORT;
     } else if (!(*rmlen)) {
         result.type = VT100_WAIT;
+    } else if (mode == 52) {
+        if (c < s + 2 || s[1] != ';') {
+            result.type = VT100_NOTSUPPORT;
+        }
+        else {
+            // if the data is base64, update buffer, if '?' then ignore, else,
+            // it should be cleared, but we'll ignore it
+            data = [NSData dataWithBytes:s + 2 length:c - s - 2];
+            NSString *str = [[[NSString alloc] initWithData:data encoding:enc] autorelease];
+
+            if (![str length] || [str compare:@"?"] == NSOrderedSame) {
+              result.type = VT100_NOTSUPPORT;
+            } else {
+              result.type = XTERMCC_SET_SELECTION;
+              result.u.sel.dst = *s;
+              result.u.sel.data = [str debase64];
+            }
+        }
     } else {
         data = [NSData dataWithBytes:s length:c-s];
         result.u.string = [[[NSString alloc] initWithData:data

@@ -1871,6 +1871,19 @@ static char* FormatCont(int c)
             [SESSION writeTask: [NSData dataWithBytes:buf length:strlen(buf)]];
         }
         break;
+    case XTERMCC_SET_SELECTION:
+        switch (token.u.sel.dst) {
+        case 'c':
+            {
+                NSString *str = [[[NSString alloc] initWithData:token.u.sel.data encoding:[TERMINAL encoding]] autorelease];
+                NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+
+                [pboard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:self];
+                [pboard setString:str forType:NSStringPboardType];
+            }
+            break;
+		}
+		break;
 
     // Our iTerm specific codes
     case ITERM_GROWL:
